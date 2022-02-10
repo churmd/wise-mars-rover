@@ -33,32 +33,32 @@ func TestString(t *testing.T) {
 }
 
 func TestRotateRight(t *testing.T) {
-	cases := map[rover.Rover]rover.Rover{
-		{Orientation: rover.North}: {Orientation: rover.East},
-		{Orientation: rover.East}:  {Orientation: rover.South},
-		{Orientation: rover.South}: {Orientation: rover.West},
-		{Orientation: rover.West}:  {Orientation: rover.North},
+	cases := map[rover.Rover]rover.Orientation{
+		{Orientation: rover.North}: rover.East,
+		{Orientation: rover.East}:  rover.South,
+		{Orientation: rover.South}: rover.West,
+		{Orientation: rover.West}:  rover.North,
 	}
 
 	for r, expected := range cases {
-		actual := r.RotateRight()
+		r = r.RotateRight()
 
-		assert.Equal(t, expected, actual)
+		assert.Equal(t, expected, r.Orientation)
 	}
 }
 
 func TestRotateLeft(t *testing.T) {
-	cases := map[rover.Rover]rover.Rover{
-		{Orientation: rover.North}: {Orientation: rover.West},
-		{Orientation: rover.East}:  {Orientation: rover.North},
-		{Orientation: rover.South}: {Orientation: rover.East},
-		{Orientation: rover.West}:  {Orientation: rover.South},
+	cases := map[rover.Rover]rover.Orientation{
+		{Orientation: rover.North}: rover.West,
+		{Orientation: rover.East}:  rover.North,
+		{Orientation: rover.South}: rover.East,
+		{Orientation: rover.West}:  rover.South,
 	}
 
 	for r, expected := range cases {
-		actual := r.RotateLeft()
+		r = r.RotateLeft()
 
-		assert.Equal(t, expected, actual)
+		assert.Equal(t, expected, r.Orientation)
 	}
 }
 
@@ -80,7 +80,7 @@ func TestForwardEast(t *testing.T) {
 	assert.Equal(t, 3, updatedR.X)
 }
 
-func TestForwardSoth(t *testing.T) {
+func TestForwardSouth(t *testing.T) {
 	mars := rover.Grid{Width: 5, Height: 5}
 	r := rover.New(2, 2, rover.South, mars)
 

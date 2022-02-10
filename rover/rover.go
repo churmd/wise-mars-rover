@@ -3,15 +3,15 @@ package rover
 import "fmt"
 
 const (
-	North orientation = 'N'
-	East  orientation = 'E'
-	South orientation = 'S'
-	West  orientation = 'W'
+	North Orientation = 'N'
+	East  Orientation = 'E'
+	South Orientation = 'S'
+	West  Orientation = 'W'
 )
 
-type orientation rune
+type Orientation rune
 
-func (o orientation) String() string {
+func (o Orientation) String() string {
 	return string(o)
 }
 
@@ -23,12 +23,12 @@ type Grid struct {
 type Rover struct {
 	X           int
 	Y           int
-	Orientation orientation
+	Orientation Orientation
 	Grid        Grid
 	Lost        bool
 }
 
-func New(x, y int, orientation orientation, mars Grid) Rover {
+func New(x, y int, orientation Orientation, mars Grid) Rover {
 	return Rover{X: x, Y: y, Orientation: orientation, Grid: mars}
 }
 
