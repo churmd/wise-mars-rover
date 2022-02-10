@@ -41,6 +41,34 @@ func (r Rover) String() string {
 	return s
 }
 
+func (r Rover) RotateRight() Rover {
+	switch r.Orientation {
+	case North:
+		r.Orientation = East
+	case East:
+		r.Orientation = South
+	case South:
+		r.Orientation = West
+	case West:
+		r.Orientation = North
+	}
+	return r
+}
+
+func (r Rover) RotateLeft() Rover {
+	switch r.Orientation {
+	case North:
+		r.Orientation = West
+	case East:
+		r.Orientation = North
+	case South:
+		r.Orientation = East
+	case West:
+		r.Orientation = South
+	}
+	return r
+}
+
 func (r Rover) Foward() Rover {
 	if r.Lost {
 		return r
