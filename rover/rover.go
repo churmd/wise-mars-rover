@@ -86,9 +86,14 @@ func (r Rover) Foward() Rover {
 		updated.X--
 	}
 
-	if updated.X < 0 || updated.Y < 0 || updated.X >= updated.Grid.Width || updated.Y >= updated.Grid.Height {
+	if updated.isLost() {
+		r.Lost = true
 		return r
 	}
 
 	return updated
+}
+
+func (r Rover) isLost() bool {
+	return r.X < 0 || r.Y < 0 || r.X >= r.Grid.Width || r.Y >= r.Grid.Height
 }

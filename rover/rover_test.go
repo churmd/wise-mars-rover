@@ -111,8 +111,10 @@ func TestFowardDoesNothingWhenLost(t *testing.T) {
 func TestForwardSetsLostAndDoesNotMoveWhenGoingOffGrid(t *testing.T) {
 	mars := rover.Grid{Width: 5, Height: 5}
 	r := rover.New(4, 4, rover.North, mars)
+	expected := r
+	expected.Lost = true
 
 	updatedR := r.Foward()
 
-	assert.Equal(t, r, updatedR)
+	assert.Equal(t, expected, updatedR)
 }
