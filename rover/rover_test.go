@@ -34,10 +34,11 @@ func TestString(t *testing.T) {
 
 func TestRotateRight(t *testing.T) {
 	cases := map[rover.Rover]rover.Orientation{
-		{Orientation: rover.North}: rover.East,
-		{Orientation: rover.East}:  rover.South,
-		{Orientation: rover.South}: rover.West,
-		{Orientation: rover.West}:  rover.North,
+		{Orientation: rover.North}:            rover.East,
+		{Orientation: rover.East}:             rover.South,
+		{Orientation: rover.South}:            rover.West,
+		{Orientation: rover.West}:             rover.North,
+		{Orientation: rover.West, Lost: true}: rover.West,
 	}
 
 	for r, expected := range cases {
@@ -49,10 +50,11 @@ func TestRotateRight(t *testing.T) {
 
 func TestRotateLeft(t *testing.T) {
 	cases := map[rover.Rover]rover.Orientation{
-		{Orientation: rover.North}: rover.West,
-		{Orientation: rover.East}:  rover.North,
-		{Orientation: rover.South}: rover.East,
-		{Orientation: rover.West}:  rover.South,
+		{Orientation: rover.North}:            rover.West,
+		{Orientation: rover.East}:             rover.North,
+		{Orientation: rover.South}:            rover.East,
+		{Orientation: rover.West}:             rover.South,
+		{Orientation: rover.West, Lost: true}: rover.West,
 	}
 
 	for r, expected := range cases {
@@ -99,7 +101,7 @@ func TestForwardWest(t *testing.T) {
 }
 
 func TestFowardDoesNothingWhenLost(t *testing.T) {
-	mars := rover.Grid{Width: 5, Height: 5}
+	mars := rover.Grid{Width: 1, Height: 1}
 	r := rover.New(2, 2, rover.North, mars)
 	r.Lost = true
 

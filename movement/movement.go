@@ -16,5 +16,17 @@ type Journey struct {
 }
 
 func (j Journey) Run() rover.Rover {
-	return j.Rover
+	updatedRover := j.Rover
+	for _, cmd := range j.Commands {
+		switch cmd {
+		case Left:
+			updatedRover = updatedRover.RotateLeft()
+		case Right:
+			updatedRover = updatedRover.RotateRight()
+		case Foward:
+			updatedRover = updatedRover.Foward()
+		}
+	}
+
+	return updatedRover
 }

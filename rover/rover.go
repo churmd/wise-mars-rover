@@ -42,6 +42,10 @@ func (r Rover) String() string {
 }
 
 func (r Rover) RotateRight() Rover {
+	if r.Lost {
+		return r
+	}
+
 	switch r.Orientation {
 	case North:
 		r.Orientation = East
@@ -56,6 +60,10 @@ func (r Rover) RotateRight() Rover {
 }
 
 func (r Rover) RotateLeft() Rover {
+	if r.Lost {
+		return r
+	}
+
 	switch r.Orientation {
 	case North:
 		r.Orientation = West
@@ -86,7 +94,7 @@ func (r Rover) Foward() Rover {
 		updated.X--
 	}
 
-	if updated.isLost() {
+	if updated.becomeLost() {
 		r.Lost = true
 		return r
 	}
@@ -94,6 +102,6 @@ func (r Rover) Foward() Rover {
 	return updated
 }
 
-func (r Rover) isLost() bool {
+func (r Rover) becomeLost() bool {
 	return r.X < 0 || r.Y < 0 || r.X >= r.Grid.Width || r.Y >= r.Grid.Height
 }
