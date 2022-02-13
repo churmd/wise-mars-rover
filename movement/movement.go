@@ -15,11 +15,6 @@ type Journey struct {
 	Commands []Command
 }
 
-func Parse(s string) Journey {
-	// TODO implement
-	return Journey{}
-}
-
 func (j Journey) Run() rover.Rover {
 	updatedRover := j.Rover
 	for _, cmd := range j.Commands {

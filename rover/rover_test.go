@@ -65,7 +65,7 @@ func TestRotateLeft(t *testing.T) {
 }
 
 func TestForwardNorth(t *testing.T) {
-	mars := rover.Grid{Width: 5, Height: 5}
+	mars := rover.Grid{Width: 4, Height: 4}
 	r := rover.New(2, 2, rover.North, mars)
 
 	updatedR := r.Foward()
@@ -74,7 +74,7 @@ func TestForwardNorth(t *testing.T) {
 }
 
 func TestForwardEast(t *testing.T) {
-	mars := rover.Grid{Width: 5, Height: 5}
+	mars := rover.Grid{Width: 4, Height: 4}
 	r := rover.New(2, 2, rover.East, mars)
 
 	updatedR := r.Foward()
@@ -83,7 +83,7 @@ func TestForwardEast(t *testing.T) {
 }
 
 func TestForwardSouth(t *testing.T) {
-	mars := rover.Grid{Width: 5, Height: 5}
+	mars := rover.Grid{Width: 4, Height: 4}
 	r := rover.New(2, 2, rover.South, mars)
 
 	updatedR := r.Foward()
@@ -92,7 +92,7 @@ func TestForwardSouth(t *testing.T) {
 }
 
 func TestForwardWest(t *testing.T) {
-	mars := rover.Grid{Width: 5, Height: 5}
+	mars := rover.Grid{Width: 4, Height: 4}
 	r := rover.New(2, 2, rover.West, mars)
 
 	updatedR := r.Foward()
@@ -111,7 +111,7 @@ func TestFowardDoesNothingWhenLost(t *testing.T) {
 }
 
 func TestForwardSetsLostAndDoesNotMoveWhenGoingOffGrid(t *testing.T) {
-	mars := rover.Grid{Width: 5, Height: 5}
+	mars := rover.Grid{Width: 4, Height: 4}
 	r := rover.New(4, 4, rover.North, mars)
 	expected := r
 	expected.Lost = true

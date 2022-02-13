@@ -25,14 +25,14 @@ Example run:
 
 ```
 docker run -it mars-rover
-Enter the size of the grid, e.g. 5 9
-5 9
+Enter the size of the grid, e.g. 4 8
+4 8
 Enter a rover and list of commands, e.g. 2 3 E LFRFF. Or an empty line to continue
-2 3 E LFRFF
+0 2 N FFLFRFF
 Enter a rover and list of commands, e.g. 2 3 E LFRFF. Or an empty line to continue
 
 Final Rover States
-(4, 4, E)
+(0, 4, W) LOST
 ```
 
 ## Continuing Improvements

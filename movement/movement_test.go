@@ -8,14 +8,6 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestJourneyNew(t *testing.T) {
-	for i, s := range inputStrings {
-		j := movement.Parse(s)
-
-		assert.Equal(t, journeys[i], j)
-	}
-}
-
 func TestJourneyRun(t *testing.T) {
 	for i, j := range journeys {
 		r := j.Run()
@@ -32,7 +24,7 @@ var inputStrings = []string {
 }
 
 // Exmaples define the grid 4x8 and allow 4 as final X coordinate, must be inclusive
-var g = rover.Grid{Width: 5, Height: 9}
+var g = rover.Grid{Width: 4, Height: 8}
 
 // (2, 3, E) LFRFF
 // (0, 2, N) FFLFRFF

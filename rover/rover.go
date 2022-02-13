@@ -103,5 +103,5 @@ func (r Rover) Foward() Rover {
 }
 
 func (r Rover) becomeLost() bool {
-	return r.X < 0 || r.Y < 0 || r.X >= r.Grid.Width || r.Y >= r.Grid.Height
+	return r.X < 0 || r.Y < 0 || r.X > r.Grid.Width || r.Y > r.Grid.Height
 }

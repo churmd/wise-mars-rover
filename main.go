@@ -9,7 +9,7 @@ import (
 )
 
 func main(){
-	fmt.Println("Enter the size of the grid, e.g. 5 9")
+	fmt.Println("Enter the size of the grid, e.g. 4 8")
 
 	var gridWidth int
 	var gridHeight int
