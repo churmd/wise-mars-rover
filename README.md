@@ -37,6 +37,5 @@ Final Rover States
 
 ## Continuing Improvements
 
--   Move CLI interaction from the main file into another package to separate concerns and follow hexagonal architecture
 -   Properly implement CLI parsing of rover and commands to meet the specification given
--   Rename movement package to something that makes a bit more sense
+-   Rename packages to something that make a bit more sense
